@@ -1,36 +1,85 @@
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider'
-import { Header } from 'antd/es/layout/layout';
+import { Content, Footer, Header } from 'antd/es/layout/layout';
 import React from 'react'
-import music_icon from '../assets//images/music_icon.png'
+import Logo from '../components/Logo';
+import {
+    UploadOutlined,
+    HeartFilled,
+    VideoCameraOutlined,
+    HomeFilled
+} from '@ant-design/icons';
+import { Button } from 'antd';
 
-const HomeLayout = () => {
+
+const HomeLayout = (props) => {
 
     //sidebar styling
     const siderStyle = {
         textAlign: 'center',
         lineHeight: '120px',
         color: '#fff',
+        height: '80vh',
         // backgroundColor: '#262626',
-        height: '100vh'
-      };
-    
+
+    };
+
     //styling the header component
-    const headerStyle={
+    const headerStyle = {
         color: "white",
-        
+        position: 'sticky',
+        top: 0,
+        width:'100%'
+
     }
-  return (
-    <Layout>
-        <Header style={headerStyle}><img src={music_icon}/></Header>
-        <Layout>
-        <Sider style={siderStyle}>
-            Side bar
-        </Sider>
+
+    const items = [
+        {
+            key: '1',
+            icon: <HomeFilled />,
+            label: 'Home',
+        },
+        {
+            key: '2',
+            icon: <VideoCameraOutlined />,
+            label: 'Browse',
+        },
+        {
+            key: '3',
+            icon: <UploadOutlined />,
+            label: 'Playlists',
+        },
+        {
+            key: '4',
+            icon: <HeartFilled />,
+            label: 'Favorites',
+        }
+
+    ]
+    return (
+        <Layout >
+            <Header style={headerStyle}>< Logo /><p style={{}}>Music Beats</p></Header>
+            <Layout>
+                <Sider style={siderStyle}>
+                    <Menu
+                        theme="dark"
+                        mode="inline"
+                        defaultSelectedKeys={['1']}
+                        items={items}
+                    />
+                    <Button type="primary" style={{width:'25vh'}} ghost>
+                        Login
+                    </Button>
+                </Sider>
+                <Content >
+                    {props.children}
+                </Content>
+            </Layout>
+
+            <Footer style={{ textAlign: 'center', position: 'sticky', bottom: 0 }}>Ant Design ©2023 Created by Ant UED</Footer>
         </Layout>
-        
-    </Layout>
-  )
+
+    )
 }
 
 export default HomeLayout
