@@ -19,7 +19,12 @@ const HomeLayout = (props) => {
         textAlign: 'center',
         lineHeight: '120px',
         color: '#fff',
-        height: '80vh',
+        height: '100%',
+        position: 'fixed',
+        paddingTop: '10vh',
+        left: 0,
+        top: 0,
+        bottom: 0,
         // backgroundColor: '#262626',
 
     };
@@ -27,9 +32,10 @@ const HomeLayout = (props) => {
     //styling the header component
     const headerStyle = {
         color: "white",
-        position: 'sticky',
-        top: 0,
-        width:'100%'
+        // position: 'sticky',
+        // top: 0,
+        width: '100%',
+        zIndex: 1,
 
     }
 
@@ -57,26 +63,30 @@ const HomeLayout = (props) => {
 
     ]
     return (
-        <Layout >
-            <Header style={headerStyle}>< Logo /><p style={{}}>Music Beats</p></Header>
+        <Layout hasSider >
+            {/* <Layout> */}
+            <Sider style={siderStyle}>
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={['1']}
+                    items={items}
+                />
+                <Button type="primary" style={{ width: '25vh' }} ghost>
+                    Login
+                </Button>
+            </Sider>
             <Layout>
-                <Sider style={siderStyle}>
-                    <Menu
-                        theme="dark"
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        items={items}
-                    />
-                    <Button type="primary" style={{width:'25vh'}} ghost>
-                        Login
-                    </Button>
-                </Sider>
-                <Content >
+
+                <Header style={headerStyle}>< Logo /></Header>
+                <Content style={{ overflow: 'initial' }} >
                     {props.children}
                 </Content>
+
+                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%' }}>Ant Design ©2023 Created by Ant UED</Footer>
             </Layout>
 
-            <Footer style={{ textAlign: 'center', position: 'sticky', bottom: 0 }}>Ant Design ©2023 Created by Ant UED</Footer>
+
         </Layout>
 
     )
