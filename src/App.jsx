@@ -4,6 +4,7 @@ import HomeLayout from './layouts/HomeLayout';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Artists from './components/Artists';
+import Albums from './components/Albums';
 
 function App() {
   const [token, setToken] = useState("")
