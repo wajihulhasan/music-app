@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Artists from './components/Artists';
 import Albums from './components/Albums';
+import Categories from './components/Categories';
 
 function App() {
   const [token, setToken] = useState("")
@@ -23,11 +24,12 @@ function App() {
 
 
   return (
-    <div className="App">
-      <HomeLayout>
+    <div className="App" >
+      <HomeLayout >
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/library' element={<Artists/>}/>
+            <Route path='/categories' element={<Categories/>}/>
           </Routes>
       </HomeLayout>
     </div>

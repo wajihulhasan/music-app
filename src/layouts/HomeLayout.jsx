@@ -10,9 +10,11 @@ import {
     HomeFilled
 } from '@ant-design/icons';
 import { Button } from 'antd';
+import Musicbar from '../components/Musicbar';
 
 
 const HomeLayout = (props) => {
+    
 
     //sidebar styling
     const siderStyle = {
@@ -79,11 +81,11 @@ const HomeLayout = (props) => {
             <Layout>
 
                 <Header style={headerStyle}>< Logo /></Header>
-                <Content style={{ overflow: 'initial' }} >
+                <Content style={{ overflow: 'initial'}} >
                     {props.children}
                 </Content>
 
-                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%' }}>Ant Design ©2023 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%' }}><Musicbar/></Footer>
             </Layout>
 
 

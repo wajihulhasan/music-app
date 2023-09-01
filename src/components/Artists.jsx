@@ -16,6 +16,7 @@ const Artists = () => {
         let getartists = response.data.artists
         console.log(getartists)
         setArtists([...getartists])
+        
     }
 
     const style = {
