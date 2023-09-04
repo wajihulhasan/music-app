@@ -8,15 +8,17 @@ const Artists = () => {
     const URL = 'https://api.spotify.com/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx%2C00FQb4jTyendYWaN8pK0wa%2C1vCWHaC5f2uS3yhpwWbIA6%2C4gzpq5DPGxSnKTe4SA8HAU%2C0YC192cP3KPCRWx8zr8MfZ%2C3atMq790wQ7IqjeSO0HFeP%2C0k17h0D3J5VfsdmQ1iZtE9%2C2ye2Wgw4gimLv2eAKyk1NB%2C06HL4z0CvFAxyc27GXpf02'
     //getArtists
     const getArtists = async () => {
-        const response = await axios.get(`${URL}`, {
+        let response=null
+        response = await axios.get(`${URL}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
+        console.log(response)
         let getartists = response.data.artists
-        console.log(getartists)
-        setArtists([...getartists])
         
+        //console.log(getartists)
+        setArtists([...getartists])
     }
 
     const style = {
@@ -26,6 +28,7 @@ const Artists = () => {
 
 
     useEffect(() => {
+        //console.log(artists)
         getArtists()
     }, []);
 
@@ -35,7 +38,7 @@ const Artists = () => {
     }, [artists]);
     return (
         <Row style={{ marginLeft: '15%', width: '80%', marginTop: '2vh' }} gutter={[16, 24]}>
-            {artists?.map(artist => (<Artist artist={artist} />))}
+            {artists?.map((artist,index) => (<Artist key={index} artist={artist} />))}
 
         </Row>
 

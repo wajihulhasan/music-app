@@ -11,7 +11,8 @@ import {
 } from '@ant-design/icons';
 import { Button } from 'antd';
 import Musicbar from '../components/Musicbar';
-
+import Login from '../components/Login';
+import Logout from '../components/Logout';
 
 const HomeLayout = (props) => {
     
@@ -64,6 +65,9 @@ const HomeLayout = (props) => {
         }
 
     ]
+
+   
+
     return (
         <Layout hasSider >
             {/* <Layout> */}
@@ -74,9 +78,8 @@ const HomeLayout = (props) => {
                     defaultSelectedKeys={['1']}
                     items={items}
                 />
-                <Button type="primary" style={{ width: '25vh' }} ghost>
-                    Login
-                </Button>
+                {localStorage.getItem('user_token')?<Logout/>:<Login/>}
+                
             </Sider>
             <Layout>
 
