@@ -13,10 +13,12 @@ import { Button } from 'antd';
 import Musicbar from '../components/Musicbar';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
+import { useNavigate } from 'react-router-dom';
+
 
 const HomeLayout = (props) => {
     
-
+    const navigate=useNavigate();
     //sidebar styling
     const siderStyle = {
         textAlign: 'center',
@@ -47,16 +49,17 @@ const HomeLayout = (props) => {
             key: '1',
             icon: <HomeFilled />,
             label: 'Home',
+            
         },
         {
             key: '2',
             icon: <VideoCameraOutlined />,
-            label: 'Browse',
+            label: 'Categories',
         },
         {
             key: '3',
             icon: <UploadOutlined />,
-            label: 'Playlists',
+            label: 'Artists',
         },
         {
             key: '4',
@@ -65,7 +68,22 @@ const HomeLayout = (props) => {
         }
 
     ]
+    const onClick = (e) => {
+        if(e.key==='1')
+        {
+           navigate('/') 
+        }
+        else if(e.key === '2'){
+            navigate('/categories')
+        }
+        else if(e.key === '3'){
+            navigate('/library')
+        }
+        else if(e.key === '4'){
+            navigate('/library')
+        }
 
+      };
    
 
     return (
@@ -77,6 +95,7 @@ const HomeLayout = (props) => {
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     items={items}
+                    onClick={onClick}
                 />
                 {localStorage.getItem('user_token')?<Logout/>:<Login/>}
                 
@@ -88,7 +107,7 @@ const HomeLayout = (props) => {
                     {props.children}
                 </Content>
 
-                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%' }}><Musicbar/></Footer>
+                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%',paddingBottom:'0%',paddingTop:'0%' }}><Musicbar/></Footer>
             </Layout>
 
 

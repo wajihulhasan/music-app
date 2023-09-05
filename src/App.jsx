@@ -7,6 +7,7 @@ import Artists from './components/Artists';
 import Albums from './components/Albums';
 import Categories from './components/Categories';
 import Profile from './components/Profile';
+import Searchspotify from './components/Searchspotify';
 
 function App() {
   const [token, setToken] = useState("")
@@ -36,7 +37,8 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/library' element={<Artists/>}/>
             <Route path='/categories' element={<Categories/>}/>
-            <Route path='/profile' element={<Profile/>}/>
+             {localStorage.getItem("user_token")&&<Route path='/profile' element={<Profile/>}/>}
+            <Route path='/search' element={<Searchspotify/>}/>
           </Routes>
       </HomeLayout>
     </div>

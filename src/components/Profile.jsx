@@ -42,7 +42,7 @@ const Profile = () => {
                     <p>{currentUser.name}</p>
                 </Col>
                 <Col xs={24} md={12} lg={6} sm={24} xl={6} xxl={6} align="center">
-                    <h1 style={{}}>{userName}</h1>
+                    <h1>{userName}</h1>
                 </Col>
             </Row>
             <FollowedArtists/>
