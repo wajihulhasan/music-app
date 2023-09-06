@@ -18,7 +18,7 @@ const LoginUser = () => {
             }
         })
         if (response) {
-            console.log(response.data)
+            //console.log(response.data)
             setUserName(response.data.display_name)
             setProfileImg(response.data.images[0].url)
         }
