@@ -10,10 +10,15 @@ import {
     HomeFilled
 } from '@ant-design/icons';
 import { Button } from 'antd';
+import Musicbar from '../components/Musicbar';
+import Login from '../components/Login';
+import Logout from '../components/Logout';
+import { useNavigate } from 'react-router-dom';
 
 
 const HomeLayout = (props) => {
-
+    
+    const navigate=useNavigate();
     //sidebar styling
     const siderStyle = {
         textAlign: 'center',
@@ -44,16 +49,17 @@ const HomeLayout = (props) => {
             key: '1',
             icon: <HomeFilled />,
             label: 'Home',
+            
         },
         {
             key: '2',
             icon: <VideoCameraOutlined />,
-            label: 'Browse',
+            label: 'Categories',
         },
         {
             key: '3',
             icon: <UploadOutlined />,
-            label: 'Playlists',
+            label: 'Artists',
         },
         {
             key: '4',
@@ -62,6 +68,24 @@ const HomeLayout = (props) => {
         }
 
     ]
+    const onClick = (e) => {
+        if(e.key==='1')
+        {
+           navigate('/') 
+        }
+        else if(e.key === '2'){
+            navigate('/categories')
+        }
+        else if(e.key === '3'){
+            navigate('/library')
+        }
+        else if(e.key === '4'){
+            navigate('/library')
+        }
+
+      };
+   
+
     return (
         <Layout hasSider >
             {/* <Layout> */}
@@ -71,19 +95,19 @@ const HomeLayout = (props) => {
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     items={items}
+                    onClick={onClick}
                 />
-                <Button type="primary" style={{ width: '25vh' }} ghost>
-                    Login
-                </Button>
+                {localStorage.getItem('user_token')?<Logout/>:<Login/>}
+                
             </Sider>
             <Layout>
 
                 <Header style={headerStyle}>< Logo /></Header>
-                <Content style={{ overflow: 'initial' }} >
+                <Content style={{ overflow: 'initial'}} >
                     {props.children}
                 </Content>
 
-                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%' }}>Ant Design ©2023 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center', position: 'fixed', bottom: 0,width:'100%',paddingBottom:'0%',paddingTop:'0%' }}><Musicbar/></Footer>
             </Layout>
 
 

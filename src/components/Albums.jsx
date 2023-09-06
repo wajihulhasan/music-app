@@ -27,10 +27,7 @@ const Albums = () => {
     }, [albums]);
     return (
         <div>
-            <div style={{  display: 'flex', justifyContent: 'space-between' }}>
-                <h1 style={{paddingLeft:'4%'}} >Albums</h1>
-                <p style={{ textAlign: 'center', paddingRight:'4%' }}>Show all</p>
-            </div>
+            
             <Row style={{ display: 'flex', justifyContent: 'space-around' }} >
                 {albums?.map((album,index) => (<Album key={index} album={album} />))}
             </Row>

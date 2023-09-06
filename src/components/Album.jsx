@@ -10,7 +10,7 @@ const Album = (props) => {
                     padding:'6%',
                     backgroundColor:'#1f1f1f'
                 }} cover={<img alt="example" src={props?.album?.images[1]?.url} />}>
-                    <Meta  title = {<h3 style={{color:'#f0f0f0'}}>{props?.album?.name}</h3>} description= "www.instagram.com" />
+                    {/* <Meta  title = {<h3 style={{color:'#f0f0f0'}}>{props?.album?.name}</h3>} description= "www.instagram.com" /> */}
                 </Card>
             </Popover>
         </Col>
