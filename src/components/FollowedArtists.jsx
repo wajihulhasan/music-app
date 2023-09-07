@@ -8,7 +8,7 @@ const FollowedArtists = () => {
 
     const [artists, setArtists] = useState([])
     const Followed_Artists_Url = 'https://api.spotify.com/v1/me/following?type=artist&limit=50'
-
+    
     //get followed artists list
     const get_followed_artists = async () => {
         const response = await axios.get(`${Followed_Artists_Url}`, {

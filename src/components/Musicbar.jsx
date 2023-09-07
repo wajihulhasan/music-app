@@ -32,7 +32,7 @@ const Musicbar = () => {
         <div>
             <AudioPlayer
                 //autoPlay
-                src="http://example.com/audio.mp3"
+                src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3?_=1"
                 onPlay={e =>{ console.log("onPlay")}}
             // other props here
             />

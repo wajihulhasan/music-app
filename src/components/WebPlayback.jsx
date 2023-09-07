@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+
 const playback_url = "";
 
 function WebPlayback(props) {
@@ -16,7 +17,7 @@ function WebPlayback(props) {
             }
         })
         if (response.status === 200) {
-            console.log(response.data.device.id)
+            //console.log(response.data.device.id)
             let deviceInfo = response.data.device;
             setObject_id(deviceInfo.id);
             localStorage.setItem('device_id',`${deviceInfo.id}`)
@@ -30,7 +31,9 @@ function WebPlayback(props) {
 
     }, [object_id]);
     return (
-        <></>
+        <>
+        {/* <Songs/> */}
+        </>
     )
 }
 
